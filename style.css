@@ -1,0 +1,625 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ფერები და ცვლადები*/
+:root {
+  --mainBackgroundLight: #2b2b2b;
+  --mainBackgroundDark: #161616;
+  --navBackground: #1a1e1f;
+  --white: #f4f4f4;
+  --lightBlue: #0493c9;
+  --borderColor: #6b6b6ba3;
+  --buttonColor: #00aef3;
+  --sideNavBg: #222222;
+
+  --sidePadding: clamp(1.2rem, 3vw, 2rem);
+}
+
+/* custom სტილები */
+
+body {
+  color: var(--white);
+}
+
+h1 {
+  font-size: clamp(34px, 6.5vw, 42px);
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--lightBlue);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  transition: .2s ease-in-out;
+}
+
+.mw {
+  /*min-width*/
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+.centered {
+  /*self-centered*/
+  margin: 0 auto;
+}
+
+/* ნავიგაციის სტილი */
+nav {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  padding: 0 var(--sidePadding);
+  background-color: var(--navBackground);
+  z-index: 3;
+  transition: .1s ease-in-out;
+}
+
+nav.bg-transparent {
+  background-color: #222222f2;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(0.7rem, 4vw, 1.25rem) 0;
+}
+
+.nav-content svg {
+  height: clamp(25px, 7vw, 40px);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.4rem;
+  list-style: none;
+}
+
+.nav-links li {
+  color: var(--white);
+  padding-inline: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  transition: .2s ease-in-out;
+}
+
+.nav-links li:hover {
+  color: var(--lightBlue);
+}
+
+.nav-links li:nth-of-type(3) {
+  color: var(--lightBlue);
+}
+
+.nav-links li a {
+  color: inherit;
+  text-decoration: 0;
+}
+
+@media (max-width: 720px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+/* ჰედერის სტილი */
+header {
+  background-color: var(--mainBackgroundLight);
+}
+
+.banner {
+  height: clamp(252px, 40vw, 352px);
+  padding: 0 var(--sidePadding);
+  background: center no-repeat url('./assets/banner_img.webp');
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.banner h1 {
+  line-height: clamp(2.5rem, 6.5vw, 3rem);
+}
+
+.banner h1 span:nth-of-type(2) {
+  font-size: clamp(28px, 5.2vw, 34px);
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 5vw, 3rem);
+  padding: 4rem 0;
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+.header-content h2 {
+  font-weight: 400;
+  font-size: clamp(18px, 3vw, 28px);
+  line-height: clamp(1.5rem, 5vw, 2rem);
+}
+
+.header-content a {
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: bold;
+}
+
+.header-content a:hover {
+  color: #a3a3a3;
+}
+
+@media (max-width: 1050px) {
+  .header-content {
+    padding:
+      clamp(2rem, 7vw, 4rem) var(--sidePadding);
+    margin: 0;
+  }
+}
+
+/* კურსების სექციის სტილი */
+main {
+  background-color: var(--mainBackgroundDark);
+  color: var(--white);
+  padding: 2rem var(--sidePadding) 4rem;
+}
+
+main h3 {
+  font-weight: 400;
+}
+
+#courses-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.3rem, 2vw, 1.5rem);
+  padding-top: clamp(0.8rem, 8vw, 5rem)
+}
+
+.courses-item {
+  width: 100%;
+  height: clamp(300px, 45vw, 414px);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--borderColor);
+  border-radius: 5px;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.item-info {
+  flex-grow: 1;
+  padding:
+    clamp(1.3rem, 2.5vw, 2rem) clamp(0.8rem, 1.5vw, 2rem);
+}
+
+.item-info span:nth-of-type(1) {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.item-info span:nth-of-type(2) {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.courses-item a {
+  font-weight: 500;
+  padding-inline-start: clamp(0.8rem, 1.5vw, 2rem);
+  margin-bottom: 1.5rem;
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+.courses-item a:hover {
+  color: #07759c;
+}
+
+.courses-item a svg {
+  margin-bottom: -4px;
+  height: clamp(12px, 2vw, 16px);
+}
+
+@media (max-width: 720px) {
+  #courses-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .courses-item {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #courses-container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+
+}
+
+/* პარნტნიორების სექციის სტილი */
+section#partners {
+  background-color: var(--mainBackgroundLight);
+  padding: 0 var(--sidePadding);
+}
+
+.partners-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.5rem, 4vw, 2rem);
+  padding:
+    clamp(0.7rem, 2.5vw, 2rem) 0 clamp(1rem, 4vw, 4rem);
+}
+
+.partners-content h3 {
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 3rem;
+  font-size: clamp(18px, 3vw, 24px);
+}
+
+.partners-content button {
+  background: 0;
+  border: 0;
+  color: white;
+  cursor: pointer;
+}
+
+.partners-content svg {
+  width: clamp(15px, 3vw, 20px);
+  height: clamp(30px, 4vw, 43px);
+  pointer-events: none;
+}
+
+.partners-content button:hover svg {
+  fill: #c9c9c9;
+}
+
+.partners-slider {
+  width: clamp(400px, 80vw, 980px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.partners-logos {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: .4s linear;
+}
+
+.partners-logos.show {
+  animation: show .7s linear forwards;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.partners-logos.hide {
+  animation: hide .7s linear forwards;
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.partners-logos img {
+  width: 25%;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slider-btn svg {
+  width: 20px;
+  fill: var(--white);
+}
+
+.arr-left-slider {
+  left: clamp(-150px, -7vw, -50px);
+}
+
+.arr-right-slider {
+  right: clamp(-150px, -7vw, -50px);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.actions {
+  display: flex;
+  gap: 0.8rem;
+  margin: 1.5rem auto 0;
+}
+
+.actions svg {
+  width: 6px;
+  height: 6px;
+  fill: var(--white);
+}
+
+@media (max-width: 700px) {
+
+  .centered {
+    margin: 0;
+  }
+
+  .partners-content h3 {
+    margin-bottom: clamp(0.5rem, 5vw, 1rem);
+  }
+
+  .partners-slider {
+    width: auto;
+    height: clamp(230px, 45vw, 300px);
+    justify-content: center;
+  }
+
+  .slider-btn {
+    display: none;
+  }
+
+  .partners-logos {
+    flex-direction: column;
+    height: fit-content;
+    gap: 2rem;
+  }
+
+  .partners-logos img {
+    width: max(50%, 190px);
+  }
+
+  .actions {
+    margin: 0 auto;
+  }
+}
+
+/* ხშირად დასმული კითხვების სექცია */
+section#freq-asked-questions {
+  background-color: var(--mainBackgroundDark);
+  padding: 0 var(--sidePadding);
+}
+
+.faq-content {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 5rem) 0 5rem;
+  position: relative;
+}
+
+div#faq-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+}
+
+div#faq-heading h3 {
+  font-weight: 500;
+}
+
+div#faq-heading a {
+  font-weight: 700;
+  font-size: clamp(16px, 2vw, 20px);
+}
+
+div#faq-heading a:hover {
+  color: #a3a3a3;
+}
+
+.faq-container {
+  list-style: none;
+}
+
+.faq-container li {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(0.5rem, 4vw, 1.8rem) 0 0;
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.faq-container li svg {
+  transition: .2s ease-in-out;
+  overflow: visible;
+}
+
+.faq-item {
+  width: 100%;
+  background: 0;
+  border: 0;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  fill: var(--white);
+  font-size: 18px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-item span {
+  font-size: clamp(15px, 4vw, 18px);
+}
+
+.faq-container li:has(.show-answer) svg {
+  transform: rotate(180deg);
+  transition: .2s ease-in-out;
+}
+
+.faq-answer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: clamp(0.5rem, 4vw, 1.8rem);
+  line-height: 1.7rem;
+  font-size: 14px;
+  max-height: 0;
+  overflow: hidden;
+  animation: hide-answer .4s linear forwards;
+}
+
+.faq-answer p {
+  padding-inline-start: 1.5rem;
+}
+
+.faq-answer.show-answer {
+  animation: show-answer 1s linear forwards;
+}
+
+@keyframes show-answer {
+  from {
+    max-height: 0;
+  }
+
+  to {
+    max-height: 1300px;
+  }
+}
+
+@keyframes hide-answer {
+  from {
+    max-height: 800px;
+  }
+
+  to {
+    max-height: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  div#faq-heading a {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 1.5rem 0 2rem;
+    text-wrap: nowrap;
+  }
+
+  .faq-answer.show-answer {
+    animation: show-answer .12s linear forwards;
+  }
+}
+
+/* ფუტერის სტილი */
+footer {
+  background-color: var(--navBackground);
+  padding: 0 var(--sidePadding);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "img footer-links"
+    "footer-info contact-btn";
+  padding: clamp(1.3rem, 5vw, 3.5rem) 0;
+  font-size: 14px;
+}
+
+.footer-content>img.tbc-logo {
+  height: 30px;
+  grid-area: img;
+}
+
+.footer-content .links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.7rem;
+  align-items: flex-start;
+  grid-area: footer-links;
+}
+
+.footer-link {
+  height: clamp(25px, 11vw, 39px);
+  aspect-ratio: 1/1;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  grid-area: footer-info;
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+.footer-info a {
+  color: var(--white);
+}
+
+.footer-info a:hover {
+  color: #909090;
+}
+
+.footer-content button#contactBtn {
+  background-color: var(--buttonColor);
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  width: fit-content;
+  height: fit-content;
+  padding:
+    clamp(0.2rem, 2vw, 0.6rem) clamp(1rem, 2vw, 2.2rem);
+  font-size: clamp(14px, 2vw, 16px);
+  margin: auto 0 0 auto;
+  cursor: pointer;
+  transition: .2s ease-in-out;
+  grid-area: contact-btn;
+}
+
+.footer-content button#contactBtn:hover {
+  background-color: var(--white);
+  color: #646464;
+}
+
+@media (max-width: 500px) {
+  .footer-content {
+    grid-template-areas:
+      "img img"
+      "contact-btn footer-links"
+      "footer-info footer-info";
+    gap: 1.5rem;
+  }
+
+  .footer-content button#contactBtn {
+    margin: auto auto auto 0;
+  }
+
+  .footer-info {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+}
